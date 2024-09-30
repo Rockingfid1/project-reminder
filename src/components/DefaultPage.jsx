@@ -1,9 +1,13 @@
-import logo from "../assets/no-projects.png";
+import logo from "../assets/reminder-app-logo.png";
 
 export default function DefaultPage({ onPageClick }) {
   return (
     <div className="flex flex-col items-center w-3/5 h-1/3 ml-96 pt-5 gap-8 -translate-x-48 translate-y-60 size-72">
-      <img src={logo} alt="logo image" className="w-24" />
+      <img
+        src={logo}
+        alt="logo image"
+        className="w-36 shadow-black drop-shadow-2xl"
+      />
       <h1 className="font-bold text-stone-600 text-3xl">No Project Selected</h1>
       <p className=" text-stone-950 text-2xl">
         Select a project or get started with a new one.
