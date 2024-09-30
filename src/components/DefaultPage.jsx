@@ -1,4 +1,4 @@
-import logo from "../assets/reminder-app-logo.png";
+import logo from "../../public/reminder-app-logo.png";
 
 export default function DefaultPage({ onPageClick }) {
   return (
