@@ -18,7 +18,10 @@ export default function DefaultPage({ onPageClick }) {
         <strong className="font-semibold">clearing</strong> a task, etc) <br />
         to avoid any bugs.
         <br />
-        <br /> Email any bugs: yugokoye@gmail.com
+        <br /> Email any bugs:{" "}
+        <a href="https://mail.google.com/mail/#inbox?compose=new">
+          omfugo2006@gmail.com
+        </a>
       </p>
       <button
         className="text-neutral-400 text-2xl bg-stone-900 rounded-md p-4"
