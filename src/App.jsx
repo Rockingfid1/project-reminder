@@ -9,8 +9,8 @@ import Copyright from "./components/Copyright";
 function App() {
   const [addProjectClicked, setAddProjectClicked] = useState("Default Page");
 
-  const savedProjectDetails = localStorage.getItem("Project Details")
-    ? JSON.parse(localStorage.getItem("Project Details"))
+  const savedProjectDetails = localStorage.getItem("projectDetails")
+    ? JSON.parse(localStorage.getItem("projectDetails"))
     : [];
   const [projectDetails, setProjectDetails] = useState(savedProjectDetails);
   const [selectedIndex, setSelectedIndex] = useState();
@@ -23,7 +23,7 @@ function App() {
 
   function handleBrowserSave() {
     localStorage.setItem("task", JSON.stringify(tasks));
-    localStorage.setItem("Project Details", JSON.stringify(projectDetails));
+    localStorage.setItem("projectDetails", JSON.stringify(projectDetails));
   }
 
   function handleSubmit(task, index) {
@@ -60,7 +60,7 @@ function App() {
       localStorage.setItem("task", JSON.stringify(deletedTasks));
 
       localStorage.setItem(
-        "Project Details",
+        "projectDetails",
         JSON.stringify(deletedProjectDetails)
       );
 
