@@ -89,7 +89,7 @@ function App() {
   }
   return (
     <>
-      <main className="flex flex-row gap-5 bg-gradient-to-r from-orange-200 from-30% to-amber-100 to-70% w-screen">
+      <main className="flex flex-row gap-5 bg-gradient-to-r from-orange-200 from-30% to-amber-100 to-70% w-screen h-screen">
         <Sidebar
           onProjectClick={handleClick}
           items={projectDetails}
