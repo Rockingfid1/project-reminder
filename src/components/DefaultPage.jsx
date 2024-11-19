@@ -19,9 +19,7 @@ export default function DefaultPage({ onPageClick }) {
         to avoid any bugs.
         <br />
         <br /> Email any bugs:{" "}
-        <a href="https://mail.google.com/mail/#inbox?compose=new">
-          omfugo2006@gmail.com
-        </a>
+        <a href={`mailto: omfugo2006@gmail.com`}>omfugo2006@gmail.com</a>
       </p>
       <button
         className="text-neutral-400 text-2xl bg-stone-900 rounded-md p-4"
