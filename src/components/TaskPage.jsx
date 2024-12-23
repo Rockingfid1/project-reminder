@@ -12,6 +12,7 @@ export default function TaskPage({
   onClear,
   pageIndex,
   onSave,
+  onProjectClick,
 }) {
   const [enteredTask, setEnteredTask] = useState("");
   const inputContent = useRef();
@@ -20,8 +21,8 @@ export default function TaskPage({
     setEnteredTask(inputContent.current.value);
   }
 
-  function handleSubmit() {
-    onAdd(enteredTask, pageIndex);
+  function handleSubmit(index) {
+    onAdd(enteredTask, index);
     setEnteredTask("");
   }
 
@@ -36,7 +37,7 @@ export default function TaskPage({
       .length === 0
   ) {
     list = (
-      <p className="text-center">
+      <p className="text-center text-base">
         Tasks will show up here (Please do not save sensitive information)
       </p>
     );
@@ -50,7 +51,7 @@ export default function TaskPage({
   )
     save = (
       <button
-        className="text-lg text-white bg-black rounded-md pl-7 pr-7 translate-y-40"
+        className="lp:text-lg text-lg lg:text-xl lg:pb-1 text-white bg-black rounded-md pl-7 pr-7 w-fit"
         onClick={onSave}
       >
         Save
@@ -58,38 +59,48 @@ export default function TaskPage({
     );
 
   return (
-    <div
-      className={` h-44 w-7/12 items-start text-lg translate-x-24 translate-y-40  ${
-        !display ? "hidden" : ""
+    <section
+      className={`lp:h-5/6 lp:w-9/12 lp:items-start text-lg w-screen h-screen p-8 lp:ml-52 sm:p-20 ${
+        !display ? "hidden lp:block" : ""
       }`}
     >
       <span className="flex justify-between mb-3">
-        <h1 className=" text-stone-950 text-4xl font-bold">
+        <h1 className=" text-stone-950 text-4xl font-bold lg:text-5xl lp:text-4xl">
           {item[itemIndex].title}
         </h1>
-        <button
-          className=" text-stone-950"
-          onClick={() => {
-            onDelete(itemIndex, true);
-            handlePageDelete(tasks);
-          }}
-        >
-          Delete
-        </button>
+        <div>
+          <button
+            className=" text-stone-950 mr-6 lg:text-xl lp:text-lg"
+            onClick={() => {
+              onProjectClick("Default Page");
+            }}
+          >
+            Back
+          </button>
+          <button
+            className=" text-red-500 lg:text-xl lp:text-lg"
+            onClick={() => {
+              onDelete(itemIndex, true);
+              handlePageDelete(tasks);
+            }}
+          >
+            Delete
+          </button>
+        </div>
       </span>
-      <p className="mb-5 text-stone-400">
+      <p className="mb-5 text-stone-400 lg:text-xl lp:text-lg">
         {dateFormat(item[itemIndex].dueDate)}
       </p>
-      <p className="mb-5 text-stone-950 whitespace-pre-wrap border-b-4 pb-3 border-stone-400 border-opacity-70">
+      <p className="mb-5 lg:pb-6 lg:text-2xl text-stone-950 whitespace-pre-wrap border-b-4 pb-3 border-stone-400 border-opacity-70 lp:text-xl">
         {item[itemIndex].description}
       </p>
 
-      <div className="translate-y-6">
-        <h1 className=" text-stone-950 text-4xl font-bold translate-y-10">
+      <div className="-mb-7 flex flex-col gap-5">
+        <h1 className=" text-stone-950 text-4xl font-bold lp:text-3xl">
           Tasks
         </h1>
 
-        <div className="translate-y-16 flex flex-row gap-4">
+        <div className="flex flex-row gap-4">
           <input
             onChange={handleChange}
             ref={inputContent}
@@ -98,7 +109,7 @@ export default function TaskPage({
             value={enteredTask}
           />
           <button
-            className="font-medium"
+            className="font-medium lg:text-xl lp:text-lg"
             onClick={() => {
               handleSubmit(itemIndex);
             }}
@@ -106,15 +117,16 @@ export default function TaskPage({
             Add Task
           </button>
         </div>
+
+        {save}
+        <ul
+          className={
+            "flex flex-col gap-6 bg-stone-300 bg-opacity-40 rounded-md p-2 mt-3 sm:p-5 lg:text-xl lp:text-lg"
+          }
+        >
+          {list}
+        </ul>
       </div>
-      {save}
-      <ul
-        className={
-          "translate-y-44 flex flex-col gap-6 bg-stone-300 bg-opacity-40 rounded-md  p-4 py-9"
-        }
-      >
-        {list}
-      </ul>
-    </div>
+    </section>
   );
 }
