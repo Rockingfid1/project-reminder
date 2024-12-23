@@ -18,8 +18,8 @@ export default function Project({ onAnyClick, onSave, details }) {
 
   return (
     <section className="h-screen w-screen flex flex-col items-center">
-      <div className="flex flex-col items-end  w-fit h-fit m-auto">
-        <div className="flex flex-row gap-5 w-6 h-10 -mb-3 lp:-translate-x-[565%]">
+      <div className="flex flex-col items-center w-fit h-fit m-auto">
+        <div className="flex flex-row gap-5 w-6 h-10 -mb-3 lp:ml-36">
           <button
             className="text-lg sm:text-xl lg:text-2xl lp:text-lg hover:text-red-600"
             onClick={() => onAnyClick("Default Page")}
