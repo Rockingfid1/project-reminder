@@ -19,7 +19,6 @@ function App() {
     : [];
   const [tasks, setTasks] = useState(savedTask);
   const [randomNumber, setRandomNumber] = useState(1.1);
-  const [projectId, setProjectId] = useState(0);
 
   function handleBrowserSave() {
     localStorage.setItem("task", JSON.stringify(tasks));
@@ -76,7 +75,6 @@ function App() {
   }
 
   function handleSave(titleRef, descriptionRef, dueDateRef) {
-    setProjectId(Math.random());
     setProjectDetails((prev) => {
       return [
         ...prev,
@@ -84,7 +82,6 @@ function App() {
           title: titleRef,
           description: descriptionRef,
           dueDate: dueDateRef,
-          id: projectId,
         },
       ];
     });

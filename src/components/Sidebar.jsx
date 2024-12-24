@@ -23,7 +23,7 @@ export default function Sidebar({
     >
       <div className="flex flex-col justify-between items-center md:items-center">
         <span className="flex flex-col items-center md:items-center">
-          <h1 className="text-4xl text-white text-center p-8 font-semibold lp:font-semibold lp:mb-6 lp:text-white lp:text-center lg:text-5xl lp:text-3xl">
+          <h1 className="text-3xl text-white text-center p-8 font-semibold lp:font-semibold lp:mb-6 lp:text-white lp:text-center lg:text-5xl lp:text-3xl">
             YOUR PROJECTS
           </h1>
           <button
@@ -44,8 +44,8 @@ export default function Sidebar({
                   <button
                     className={`${
                       selectedItem === itemIndex
-                        ? "text-zinc-400 bg-opacity-75 bg-orange-950 text-lg rounded-lg hover:text-white lp:bg-orange-950 lp:bg-opacity-75 lp:text-lg lp:rounded-sm pl-2 pr-72  sm:pr-80 py-2 lg:text-2xl"
-                        : "text-stone-400 text-lg rounded-lg bg-opacity-75 bg-orange-950 pl-2  pr-72 py-2  sm:text-zinc-400 sm:text-lg sm:rounded-lg sm:p-2 lp:text-stone-500 lp:text-lg lp:rounded-sm lp:bg-opacity-30 hover:text-white sm:pr-80 sm:bg-orange-950 sm:bg-opacity-75 lg:text-2xl"
+                        ? "text-zinc-400 bg-opacity-75 bg-orange-950 text-base rounded-lg hover:text-white lp:bg-orange-950 lp:bg-opacity-75 lp:text-lg lp:rounded-sm pl-2 pr-72  sm:pr-80 py-2 lg:text-2xl"
+                        : "text-stone-400 text-base rounded-lg bg-opacity-75 bg-orange-950 pl-2  pr-72 py-2  sm:text-zinc-400 sm:text-lg sm:rounded-lg sm:p-2 lp:text-stone-500 lp:text-lg lp:rounded-sm lp:bg-opacity-30 hover:text-white sm:pr-80 sm:bg-orange-950 sm:bg-opacity-75 lg:text-2xl"
                     }`}
                     onClick={() => {
                       handleClick(itemIndex);

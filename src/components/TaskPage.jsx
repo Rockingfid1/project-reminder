@@ -15,6 +15,7 @@ export default function TaskPage({
   onProjectClick,
 }) {
   const [enteredTask, setEnteredTask] = useState("");
+
   const inputContent = useRef();
 
   function handleChange() {
