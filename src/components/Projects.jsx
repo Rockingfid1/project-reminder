@@ -1,19 +1,29 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import ErrorMessage from "./ErrorMessage";
 
-export default function Project({ onAnyClick, onSave, details }) {
+export default function Project({ onPageClick, onSave }) {
   const title = useRef();
   const description = useRef();
   const dueDate = useRef();
+  const [error, setError] = useState(false);
 
   function handleSave() {
-    onSave(
-      title.current.value,
-      description.current.value,
-      dueDate.current.value
-    );
-
-    if (!details) onAnyClick("Default Page");
+    if (
+      title.current.value.trim() === "" ||
+      description.current.value.trim() === "" ||
+      dueDate.current.value.trim() === ""
+    ) {
+      setError(true);
+      return;
+    } else {
+      onSave(
+        title.current.value,
+        description.current.value,
+        dueDate.current.value
+      );
+      onPageClick("Default Page");
+      setError(false);
+    }
   }
 
   return (
@@ -22,7 +32,7 @@ export default function Project({ onAnyClick, onSave, details }) {
         <div className="flex flex-row gap-5 w-6 h-10 -mb-3 lp:ml-36">
           <button
             className="text-lg sm:text-xl lg:text-2xl lp:text-lg hover:text-red-600"
-            onClick={() => onAnyClick("Default Page")}
+            onClick={() => onPageClick("Default Page")}
           >
             Cancel
           </button>
@@ -65,7 +75,7 @@ export default function Project({ onAnyClick, onSave, details }) {
               ref={dueDate}
             />
           </li>
-          {details && <ErrorMessage />}
+          {error && <ErrorMessage />}
         </ul>
       </div>
     </section>

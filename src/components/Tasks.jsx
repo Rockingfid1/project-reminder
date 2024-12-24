@@ -1,10 +1,10 @@
-export default function Tasks({ tasks, itemDelete, pageIndex }) {
+export default function Tasks({ tasks, itemDelete }) {
   return tasks
-    .filter((task) => task.tasksId === pageIndex && task.tasks !== "")
-    .map((task, taskIndex) => {
+    .filter((task) => task.task.trim() !== "")
+    .map((task) => {
       return (
-        <li className="flex flex-row justify-between" key={taskIndex}>
-          <p className="font-semibold">{task.tasks}</p>
+        <li className="flex flex-row justify-between" key={task.taskSpecialId}>
+          <p className="font-semibold">{task.task}</p>
           <button
             className="hover:text-red-600"
             onClick={() => {
@@ -15,6 +15,5 @@ export default function Tasks({ tasks, itemDelete, pageIndex }) {
           </button>
         </li>
       );
-    })
-    .reverse();
+    });
 }

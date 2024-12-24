@@ -12,6 +12,17 @@ export default function Sidebar({
     setSelectedItem(index);
   }
 
+  function handleProjectSwitch(itemIndex) {
+    handleClick(itemIndex);
+
+    setTimeout(() => {
+      onProjectClick("Task Page");
+    }, 0.001);
+    onProjectClick("Default Page");
+
+    getIndex(itemIndex);
+  }
+
   return (
     <aside
       className={`min-h-screen min-w-screen ${
@@ -19,11 +30,11 @@ export default function Sidebar({
           ? "hidden lp:block"
           : ""
       }
-     lp:w-2/3 lp:h-screen lp:pt-12 bg-black rounded-r-sm`}
+     lp:w-[40%] lp:h-screen lp:pt-12 bg-black rounded-r-sm`}
     >
       <div className="flex flex-col justify-between items-center md:items-center">
         <span className="flex flex-col items-center md:items-center">
-          <h1 className="text-3xl text-white text-center p-8 font-semibold lp:font-semibold lp:mb-6 lp:text-white lp:text-center lg:text-5xl lp:text-3xl">
+          <h1 className="text-3xl text-white text-center p-8 font-semibold 2md:text-4xl lp:font-semibold lp:mb-6 lp:text-white lp:text-center lg:text-5xl lp:text-3xl">
             YOUR PROJECTS
           </h1>
           <button
@@ -35,7 +46,7 @@ export default function Sidebar({
           >
             + Add Project
           </button>
-          <ul className="flex flex-col gap-5 p-6">
+          <ul className="flex flex-col gap-5 p-6 items-center">
             {items.map((item, itemIndex) => {
               return item.title === "" ||
                 item.description === "" ||
@@ -44,14 +55,10 @@ export default function Sidebar({
                   <button
                     className={`${
                       selectedItem === itemIndex
-                        ? "text-zinc-400 bg-opacity-75 bg-orange-950 text-base rounded-lg hover:text-white lp:bg-orange-950 lp:bg-opacity-75 lp:text-lg lp:rounded-sm pl-2 pr-72  sm:pr-80 py-2 lg:text-2xl"
-                        : "text-stone-400 text-base rounded-lg bg-opacity-75 bg-orange-950 pl-2  pr-72 py-2  sm:text-zinc-400 sm:text-lg sm:rounded-lg sm:p-2 lp:text-stone-500 lp:text-lg lp:rounded-sm lp:bg-opacity-30 hover:text-white sm:pr-80 sm:bg-orange-950 sm:bg-opacity-75 lg:text-2xl"
+                        ? "text-zinc-400 bg-opacity-75 bg-orange-950 text-base text-center text-nowrap rounded-lg hover:text-white lp:bg-orange-950 2md:pl-4 lp:bg-opacity-75 lp:text-lg lp:rounded-sm py-3 lg:py-3 px-7 sm:pr-80 lg:text-2xl 2md:text-xl"
+                        : "text-stone-400 text-base rounded-lg bg-opacity-75 2md:pl-4 text-center text-nowrap bg-orange-950 py-3 px-7 lg:py-3  sm:text-zinc-400 sm:text-lg sm:rounded-lg sm:p-2 lp:text-stone-500 lp:text-lg lp:rounded-sm lp:bg-opacity-25 hover:text-white sm:pr-80 sm:bg-orange-950 sm:bg-opacity-75 lg:text-2xl 2md:text-xl"
                     }`}
-                    onClick={() => {
-                      handleClick(itemIndex);
-                      onProjectClick("Task Page");
-                      getIndex(itemIndex);
-                    }}
+                    onClick={() => handleProjectSwitch(itemIndex)}
                   >
                     {item.title}
                   </button>
