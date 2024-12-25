@@ -5,20 +5,16 @@ export default function Sidebar({
   items,
   getIndex,
   projectClicked,
+  selectedItem,
+  handleSelectIndex,
 }) {
-  const [selectedItem, setSelectedItem] = useState(false);
-
-  function handleClick(index) {
-    setSelectedItem(index);
-  }
-
   function handleProjectSwitch(itemIndex) {
-    handleClick(itemIndex);
+    handleSelectIndex(itemIndex);
 
     setTimeout(() => {
       onProjectClick("Task Page");
-    }, 0.001);
-    onProjectClick("Default Page");
+    }, 350);
+    onProjectClick("Fetch Tasks");
 
     getIndex(itemIndex);
   }
@@ -27,10 +23,12 @@ export default function Sidebar({
     <aside
       className={`min-h-screen min-w-screen ${
         projectClicked === "Project Page" || projectClicked === "Task Page"
-          ? "hidden lp:block"
-          : ""
+          ? "hidden lp:block  lp:w-[65%]"
+          : projectClicked === "Fetch Tasks"
+          ? "lp:w-[39%]"
+          : "lp:w-[39%]"
       }
-     lp:w-[40%] lp:h-screen lp:pt-12 bg-black rounded-r-sm`}
+ lp:h-screen lp:pt-12 bg-black rounded-r-sm`}
     >
       <div className="flex flex-col justify-between items-center md:items-center">
         <span className="flex flex-col items-center md:items-center">
@@ -41,7 +39,7 @@ export default function Sidebar({
             className="text-neutral-400 text-lg font-normal bg-stone-800 hover:bg-stone-700 rounded-md p-2 lg:text-2xl lp:text-xl"
             onClick={() => {
               onProjectClick("Project Page");
-              handleClick(null);
+              handleSelectIndex(null);
             }}
           >
             + Add Project

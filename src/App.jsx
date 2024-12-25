@@ -1,9 +1,9 @@
 import DefaultPage from "./components/DefaultPage";
-import ErrorMessage from "./components/ErrorMessage";
 import Project from "./components/Projects";
 import Sidebar from "./components/Sidebar";
 import { useState } from "react";
 import TaskPage from "./components/TaskPage";
+import FetchingTasks from "./components/FetchingTasks";
 
 function App() {
   const [addProjectClicked, setAddProjectClicked] = useState("Default Page");
@@ -12,6 +12,11 @@ function App() {
   );
   const [selectedIndex, setSelectedIndex] = useState();
   const [randomNumber, setRandomNumber] = useState(Math.random());
+  const [selectedItem, setSelectedItem] = useState(false);
+
+  function handleSelectIndex(index) {
+    setSelectedItem(index);
+  }
 
   function handleIndexAndDelete(index, remove = false) {
     setSelectedIndex(index);
@@ -71,6 +76,8 @@ function App() {
         projectClicked={addProjectClicked}
         items={projectDetails}
         getIndex={handleIndexAndDelete}
+        selectedItem={selectedItem}
+        handleSelectIndex={handleSelectIndex}
       />
       {addProjectClicked === "Default Page" ? (
         <DefaultPage onPageClick={handleClick} />
@@ -88,12 +95,13 @@ function App() {
                 onDelete={handleIndexAndDelete}
                 display={sameIndex}
                 onProjectClick={handleClick}
+                handleSelectIndex={handleSelectIndex}
               />
             );
           })}
         </ul>
       ) : (
-        ""
+        <FetchingTasks />
       )}
     </main>
   );

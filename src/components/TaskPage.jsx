@@ -8,6 +8,7 @@ export default function TaskPage({
   onDelete,
   display,
   onProjectClick,
+  handleSelectIndex,
 }) {
   const [tasks, setTasks] = useState(
     JSON.parse(localStorage.getItem("t" + item[itemIndex].id)) || []
@@ -85,6 +86,7 @@ export default function TaskPage({
             className=" text-stone-950 mr-6 lg:text-xl lp:text-lg"
             onClick={() => {
               onProjectClick("Default Page");
+              handleSelectIndex(null);
             }}
           >
             Back
