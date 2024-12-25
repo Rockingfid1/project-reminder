@@ -12,7 +12,11 @@ export default function DefaultPage({ onPageClick }) {
       <p className=" text-stone-950 text-2xl">
         Select a project or get started with a new one.
         <br /> Email:{" "}
-        <a href={`mailto: omfugo2006@gmail.com`}>omfugo2006@gmail.com</a>
+        <a href="mailto: omfugo2006@gmail.com">omfugo2006@gmail.com</a>
+        <br /> Portfolio{" "}
+        <a href="mailto: omfugo2006@gmail.com">
+          https://michaelfrankokoye.netlify.app/
+        </a>
       </p>
       <button
         className="text-neutral-400 text-2xl bg-stone-900 rounded-md p-4"
