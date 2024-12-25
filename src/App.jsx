@@ -4,7 +4,6 @@ import Sidebar from "./components/Sidebar";
 import { useState } from "react";
 import TaskPage from "./components/TaskPage";
 import FetchingTasks from "./components/FetchingTasks";
-import { StatusBar } from "expo-status-bar";
 
 function App() {
   const [addProjectClicked, setAddProjectClicked] = useState("Default Page");
@@ -71,43 +70,40 @@ function App() {
     console.log(projectDetails);
   }
   return (
-    <>
-      <StatusBar barStyle="dark-content" backgroundColor="#f7e0ae" />
-      <main className="lp:flex lp:flex-row lp:gap-5 bg-gradient-to-r from-orange-200 from-30% to-amber-100 to-70% lp:w-screen lp:h-screen">
-        <Sidebar
-          onProjectClick={handleClick}
-          projectClicked={addProjectClicked}
-          items={projectDetails}
-          getIndex={handleIndexAndDelete}
-          selectedItem={selectedItem}
-          handleSelectIndex={handleSelectIndex}
-        />
-        {addProjectClicked === "Default Page" ? (
-          <DefaultPage onPageClick={handleClick} />
-        ) : addProjectClicked === "Project Page" ? (
-          <Project onPageClick={handleClick} onSave={handleSave} />
-        ) : projectDetails.length > 0 && addProjectClicked === "Task Page" ? (
-          <ul className="w-screen">
-            {projectDetails.map((_, listIndex) => {
-              const sameIndex = listIndex === selectedIndex;
-              return (
-                <TaskPage
-                  key={listIndex}
-                  item={projectDetails}
-                  itemIndex={selectedIndex}
-                  onDelete={handleIndexAndDelete}
-                  display={sameIndex}
-                  onProjectClick={handleClick}
-                  handleSelectIndex={handleSelectIndex}
-                />
-              );
-            })}
-          </ul>
-        ) : (
-          <FetchingTasks />
-        )}
-      </main>
-    </>
+    <main className="lp:flex lp:flex-row lp:gap-5 bg-gradient-to-r from-orange-200 from-30% to-amber-100 to-70% lp:w-screen lp:h-screen">
+      <Sidebar
+        onProjectClick={handleClick}
+        projectClicked={addProjectClicked}
+        items={projectDetails}
+        getIndex={handleIndexAndDelete}
+        selectedItem={selectedItem}
+        handleSelectIndex={handleSelectIndex}
+      />
+      {addProjectClicked === "Default Page" ? (
+        <DefaultPage onPageClick={handleClick} />
+      ) : addProjectClicked === "Project Page" ? (
+        <Project onPageClick={handleClick} onSave={handleSave} />
+      ) : projectDetails.length > 0 && addProjectClicked === "Task Page" ? (
+        <ul className="w-screen">
+          {projectDetails.map((_, listIndex) => {
+            const sameIndex = listIndex === selectedIndex;
+            return (
+              <TaskPage
+                key={listIndex}
+                item={projectDetails}
+                itemIndex={selectedIndex}
+                onDelete={handleIndexAndDelete}
+                display={sameIndex}
+                onProjectClick={handleClick}
+                handleSelectIndex={handleSelectIndex}
+              />
+            );
+          })}
+        </ul>
+      ) : (
+        <FetchingTasks />
+      )}
+    </main>
   );
 }
 
