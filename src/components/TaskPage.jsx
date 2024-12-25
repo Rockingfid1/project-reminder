@@ -17,7 +17,6 @@ export default function TaskPage({
   const [enteredTask, setEnteredTask] = useState("");
 
   const inputContent = useRef();
-  console.log(item[itemIndex].id);
 
   function handleChange() {
     setEnteredTask(inputContent.current.value);

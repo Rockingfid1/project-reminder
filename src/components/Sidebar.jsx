@@ -25,7 +25,7 @@ export default function Sidebar({
         projectClicked === "Project Page" || projectClicked === "Task Page"
           ? "hidden lp:block  lp:w-[65%]"
           : projectClicked === "Fetch Tasks"
-          ? "lp:w-[39%]"
+          ? "hidden lp:block lp:w-[39%]"
           : "lp:w-[39%]"
       }
  lp:h-screen lp:pt-12 bg-black rounded-r-sm`}
