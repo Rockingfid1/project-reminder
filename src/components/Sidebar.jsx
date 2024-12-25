@@ -1,4 +1,4 @@
-import { StatusBar } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 export default function Sidebar({
   onProjectClick,

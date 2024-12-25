@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar";
 import { useState } from "react";
 import TaskPage from "./components/TaskPage";
 import FetchingTasks from "./components/FetchingTasks";
-import { StatusBar } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 function App() {
   const [addProjectClicked, setAddProjectClicked] = useState("Default Page");
