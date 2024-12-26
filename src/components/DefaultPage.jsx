@@ -11,11 +11,16 @@ export default function DefaultPage({ onPageClick }) {
       <h1 className="font-bold text-stone-600 text-3xl">No Project Selected</h1>
       <p className=" text-stone-950 text-2xl">
         Select a project or get started with a new one.
-        <br /> Email:{" "}
-        <a href="mailto: omfugo2006@gmail.com">omfugo2006@gmail.com</a>
-        <br /> Portfolio{" "}
-        <a href="mailto: omfugo2006@gmail.com">
-          https://michaelfrankokoye.netlify.app/
+        <br />
+        <a className="hover:text-red-500" href="mailto: omfugo2006@gmail.com">
+          Email me
+        </a>
+        <br />
+        <a
+          className="hover:text-red-500"
+          href="https://michaelfrankokoye.netlify.app/"
+        >
+          Portfolio
         </a>
       </p>
       <button
