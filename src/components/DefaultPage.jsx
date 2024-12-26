@@ -2,7 +2,7 @@ import logo from "../assets/reminder-app-logo.png";
 
 export default function DefaultPage({ onPageClick }) {
   return (
-    <div className="hidden lp:flex lp:flex-col lp:items-center lp:w-fit lp:h-fit lp:pt-5 lp:gap-8 lp:m-auto text-center">
+    <div className="hidden lp:flex lp:flex-col lp:items-center lp:w-fit lp:h-fit lp:pt-5 lp:gap-4 lp:m-auto text-center">
       <img
         src={logo}
         alt="logo image"
