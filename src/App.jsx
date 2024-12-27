@@ -26,16 +26,15 @@ function App() {
         (_, i) => i !== index
       );
 
-      if (deletedProjectDetails.length === 0)
-        localStorage.removeItem(
-          "projectDetails",
-          JSON.stringify(deletedProjectDetails)
-        );
-      else
+      if (deletedProjectDetails.length === 0) {
+        localStorage.removeItem("projectDetails");
+      } else {
         localStorage.setItem(
           "projectDetails",
           JSON.stringify(deletedProjectDetails)
         );
+      }
+      localStorage.removeItem("t" + projectDetails[index].id);
 
       setProjectDetails(deletedProjectDetails);
       setAddProjectClicked("Default Page");
